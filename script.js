@@ -4,7 +4,7 @@ const packages = [
   { label: "4 Hours", price: 20, speed: "3Mbps", duration: 4 },
   { label: "6 Hours", price: 30, speed: "3Mbps", duration: 6 },
   { label: "8 Hours", price: 40, speed: "3Mbps", duration: 8 },
-  { label: "24 Hours", price: 40, speed: "3Mbps", duration: 24 },
+  { label: "24 Hours", price: 55, speed: "3Mbps", duration: 24 },
   { label: "Weekly", price: 180, speed: "3Mbps", duration: 168 },
   { label: "Monthly", price: 750, speed: "3Mbps", duration: 720 },
 ];
