@@ -61,6 +61,7 @@ function detectLocation() {
 
 detectLocation();
 
+// ✅ Handle Payment
 document.getElementById("payBtn").onclick = () => {
   const phone = document.getElementById("phone").value.trim();
   const coupon = document.getElementById("coupon").value.trim();
@@ -70,7 +71,7 @@ document.getElementById("payBtn").onclick = () => {
     return;
   }
 
-  axios.post("../backend/api/process_payment.php", {
+  axios.post("http://localhost/wifi-backend/api/process_payment.php", {
     phone,
     amount: selectedPackage.price,
     label: selectedPackage.label,
@@ -79,23 +80,32 @@ document.getElementById("payBtn").onclick = () => {
   .then(res => {
     if (res.data.success) {
       alert("Payment initiated. Please confirm on your phone.");
-      startSession(selectedPackage.duration * 60);
+      startSession(selectedPackage.duration);
     } else {
       alert("Payment failed: " + res.data.message);
     }
   })
   .catch(err => {
-    console.error(err);
+    console.error("Payment error:", err.response?.data || err);
     alert("An error occurred. Please try again.");
   });
 };
 
-document.getElementById("logout").onclick = () => {
-  axios.post("../backend/api/logout_user.php").then(() => {
-    alert("You have been disconnected.");
-    window.location.reload();
-  });
-};
+// ✅ Manual Login
+const loginBtn = document.getElementById("manualLoginBtn");
+if (loginBtn) {
+  loginBtn.onclick = () => {
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    if (!username || !password) return alert("Enter username and password.");
+    axios.post("http://localhost/wifi-backend/api/login_user.php", { username, password })
+      .then(res => {
+        alert(res.data.message);
+        if (res.data.success) startSession(res.data.duration * 60);
+      })
+      .catch(() => alert("Login failed. Try again."));
+  };
+}
 
 // ✅ Reconnect with M-Pesa Code
 const reconnectBtn = document.getElementById("reconnectBtn");
@@ -103,7 +113,7 @@ if (reconnectBtn) {
   reconnectBtn.onclick = () => {
     const code = document.getElementById("mpesaCode").value.trim();
     if (!code) return alert("Please enter your M-Pesa code.");
-    axios.post("../backend/api/reconnect.php", { code })
+    axios.post("http://localhost/wifi-backend/api/reconnect.php", { code })
       .then(res => {
         alert(res.data.message);
         if (res.data.success) startSession(res.data.duration * 60);
@@ -112,13 +122,13 @@ if (reconnectBtn) {
   };
 }
 
-// ✅ Voucher Code Activation
+// ✅ Voucher Activation
 const voucherBtn = document.getElementById("voucherBtn");
 if (voucherBtn) {
   voucherBtn.onclick = () => {
     const voucher = document.getElementById("voucherCode").value.trim();
     if (!voucher) return alert("Please enter a voucher code.");
-    axios.post("../backend/api/voucher_redeem.php", { voucher })
+    axios.post("http://localhost/wifi-backend/api/voucher_redeem.php", { voucher })
       .then(res => {
         alert(res.data.message);
         if (res.data.success) startSession(res.data.duration * 60);
@@ -127,18 +137,10 @@ if (voucherBtn) {
   };
 }
 
-// ✅ Manual Username + Password Login
-const loginBtn = document.getElementById("manualLoginBtn");
-if (loginBtn) {
-  loginBtn.onclick = () => {
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    if (!username || !password) return alert("Enter username and password.");
-    axios.post("../backend/api/login_user.php", { username, password })
-      .then(res => {
-        alert(res.data.message);
-        if (res.data.success) startSession(res.data.duration * 60);
-      })
-      .catch(() => alert("Login failed. Try again."));
-  };
-}
+// ✅ Logout
+document.getElementById("logout").onclick = () => {
+  axios.post("http://localhost/wifi-backend/api/logout_user.php").then(() => {
+    alert("You have been disconnected.");
+    window.location.reload();
+  });
+};
