@@ -1,0 +1,141 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.8);
+  width: 90%;
+  max-width: 700px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 255, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+h1 {
+  color: #00ffcc;
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+
+.location {
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.packages-section h2 {
+  margin-top: 30px;
+  color: #00ffcc;
+}
+
+.packages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.package {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.package:hover,
+.package.active {
+  background: #222;
+  border-color: #00ffcc;
+  transform: scale(1.05);
+}
+
+.payment-section {
+  margin-top: 30px;
+}
+
+.payment-section input[type="tel"],
+.payment-section input[type="text"] {
+  padding: 12px;
+  margin: 10px auto;
+  width: 90%;
+  max-width: 300px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1em;
+}
+
+button#payBtn {
+  padding: 12px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  background: #00ffcc;
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button#payBtn:hover {
+  background: #00cc99;
+}
+
+.timer {
+  background: #333;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.timer.hidden {
+  display: none;
+}
+
+#logout {
+  margin-top: 15px;
+  padding: 10px 20px;
+  border: none;
+  background: #ff5555;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#logout:hover {
+  background: #ff0000;
+}
+
+.support {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #bbb;
+}
+
+.support a {
+  color: #00ffcc;
+  text-decoration: none;
+}
+
+.support a:hover {
+  text-decoration: underline;
+}

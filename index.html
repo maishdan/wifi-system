@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniwest Hotspot Portal</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="../assets/logo.png" alt="Daniwest Logo" class="logo" />
+      <h1>Welcome to Daniwest Hotspot</h1>
+      <p class="location">Detecting your location...</p>
+    </header>
+
+    <section class="packages-section">
+      <h2>Choose Your Internet Package</h2>
+      <div class="packages"></div>
+    </section>
+
+    <section class="payment-section">
+      <input type="tel" id="phone" placeholder="Enter M-Pesa Number" />
+      <input type="text" id="coupon" placeholder="Coupon Code (optional)" />
+      <button id="payBtn">PAY NOW</button>
+    </section>
+
+    <section class="info-section">
+      <div class="timer hidden">
+        <h3>Session Active</h3>
+        <p>Time Remaining: <span id="time-remaining">--:--</span></p>
+        <button id="logout">Disconnect</button>
+      </div>
+
+      <div class="support">
+        <p>Need Help? <a href="https://wa.me/254790293895" target="_blank">WhatsApp Support</a></p>
+        <p>Terms & Conditions | Privacy Policy</p>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
