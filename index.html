@@ -16,6 +16,32 @@
       <p class="location">Detecting your location...</p>
     </header>
 
+    <!-- 🔐 Reconnect via Mpesa Code -->
+    <section class="reconnect-section">
+      <h3>Reconnect Account</h3>
+      <p>(Enter M-Pesa code below from the payment you made e.g: QAH9QWWZRR)</p>
+      <input type="text" id="mpesaCode" placeholder="Enter M-Pesa Code you paid with" />
+      <button id="reconnectBtn" class="reconnect-btn">Reconnect</button>
+    </section>
+
+    <!-- 🎫 Voucher Recharge -->
+    <section class="voucher-section">
+      <h3>Voucher Recharge</h3>
+      <p>(Call admin for voucher code in case your payment fails)</p>
+      <input type="text" id="voucherCode" placeholder="Enter voucher code" />
+      <button id="voucherBtn" class="voucher-btn">Activate Voucher</button>
+    </section>
+
+    <!-- 👤 Manual Login -->
+    <section class="manual-login">
+      <h3>DANIWEST NETWORK LOGIN</h3>
+      <p>(Enter your username and password to login.)</p>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button id="manualLoginBtn">Login</button>
+    </section>
+
+    <!-- 💸 Standard Payment -->
     <section class="packages-section">
       <h2>Choose Your Internet Package</h2>
       <div class="packages"></div>

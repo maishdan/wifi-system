@@ -66,12 +66,20 @@ h1 {
   transform: scale(1.05);
 }
 
-.payment-section {
+.payment-section,
+.reconnect-section,
+.voucher-section,
+.login-section {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.payment-section input[type="tel"],
-.payment-section input[type="text"] {
+.payment-section input,
+.reconnect-section input,
+.voucher-section input,
+.login-section input {
   padding: 12px;
   margin: 10px auto;
   width: 90%;
@@ -82,20 +90,46 @@ h1 {
   font-size: 1em;
 }
 
-button#payBtn {
+button#payBtn,
+button#reconnectBtn,
+button#activateVoucher,
+button#loginBtn {
   padding: 12px 30px;
   font-size: 1em;
   font-weight: bold;
-  background: #00ffcc;
   border: none;
   border-radius: 8px;
-  color: #000;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
+button#payBtn {
+  background: #00ffcc;
+  color: #000;
+}
+
 button#payBtn:hover {
   background: #00cc99;
+}
+
+button#reconnectBtn {
+  background: linear-gradient(to right, #ff0000, #00ff00);
+  color: #000;
+}
+
+button#reconnectBtn:hover {
+  opacity: 0.9;
+}
+
+button#activateVoucher,
+button#loginBtn {
+  background: linear-gradient(to right, #00d2ff, #3a7bd5);
+  color: white;
+}
+
+button#activateVoucher:hover,
+button#loginBtn:hover {
+  opacity: 0.9;
 }
 
 .timer {
