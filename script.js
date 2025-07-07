@@ -1,5 +1,3 @@
-// Updated script.js with reconnect, voucher, and login support
-
 const packages = [
   { label: "1 Hour", price: 10, speed: "1Mbps", duration: 1 },
   { label: "2 Hours", price: 20, speed: "3Mbps", duration: 2 },
@@ -99,11 +97,11 @@ document.getElementById("logout").onclick = () => {
   });
 };
 
-// Reconnect with M-Pesa code
+// ✅ Reconnect with M-Pesa Code
 const reconnectBtn = document.getElementById("reconnectBtn");
 if (reconnectBtn) {
   reconnectBtn.onclick = () => {
-    const code = document.getElementById("reconnectCode").value.trim();
+    const code = document.getElementById("mpesaCode").value.trim();
     if (!code) return alert("Please enter your M-Pesa code.");
     axios.post("../backend/api/reconnect.php", { code })
       .then(res => {
@@ -114,7 +112,7 @@ if (reconnectBtn) {
   };
 }
 
-// Voucher code activation
+// ✅ Voucher Code Activation
 const voucherBtn = document.getElementById("voucherBtn");
 if (voucherBtn) {
   voucherBtn.onclick = () => {
@@ -129,8 +127,8 @@ if (voucherBtn) {
   };
 }
 
-// Username + Password login
-const loginBtn = document.getElementById("loginBtn");
+// ✅ Manual Username + Password Login
+const loginBtn = document.getElementById("manualLoginBtn");
 if (loginBtn) {
   loginBtn.onclick = () => {
     const username = document.getElementById("username").value.trim();

@@ -1,6 +1,13 @@
+/* ✅ Cyber Background & Base Layout */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  background: repeating-linear-gradient(
+      0deg,
+      #0f2027 0px,
+      #0f2027 1px,
+      #203a43 2px,
+      #2c5364 4px
+  );
   color: #fff;
   margin: 0;
   padding: 0;
@@ -9,39 +16,60 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-attachment: fixed;
+  background-size: cover;
+  animation: flickerBg 5s infinite alternate;
 }
 
+@keyframes flickerBg {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.05); }
+}
+
+/* ✅ Container with depth */
 .container {
   background: rgba(0, 0, 0, 0.8);
   width: 90%;
   max-width: 700px;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 40px rgba(0, 255, 0, 0.3);
+  box-shadow:
+    0 0 10px rgba(0, 255, 0, 0.3),
+    inset 0 0 15px rgba(0, 255, 0, 0.05);
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 0, 0.2);
+  transition: all 0.4s ease-in-out;
 }
 
+/* ✅ Neon-glow logo */
 .logo {
   width: 80px;
   margin-bottom: 10px;
+  filter: drop-shadow(0 0 10px #00ffcc);
 }
 
+/* ✅ Neon title */
 h1 {
   color: #00ffcc;
   font-size: 2em;
   margin-bottom: 0.2em;
+  text-shadow: 0 0 8px #00ffcc;
 }
 
+/* ✅ Subtle location */
 .location {
   font-size: 0.9em;
   color: #ccc;
 }
 
+/* ✅ Section Title */
 .packages-section h2 {
   margin-top: 30px;
   color: #00ffcc;
+  text-shadow: 0 0 5px #00ffcc;
 }
 
+/* ✅ Package Grid */
 .packages {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -49,11 +77,14 @@ h1 {
   margin-top: 20px;
 }
 
+/* ✅ 3D Neon Card Look */
 .package {
-  background: #1e1e1e;
+  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.3),
+    inset 0 0 5px rgba(255, 255, 255, 0.05);
   transition: all 0.3s ease;
   cursor: pointer;
   border: 2px solid transparent;
@@ -64,8 +95,12 @@ h1 {
   background: #222;
   border-color: #00ffcc;
   transform: scale(1.05);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.5),
+    inset 0 0 5px rgba(0, 255, 255, 0.1);
 }
 
+/* ✅ Form Sections */
 .payment-section,
 .reconnect-section,
 .voucher-section,
@@ -76,6 +111,7 @@ h1 {
   align-items: center;
 }
 
+/* ✅ Input Fields */
 .payment-section input,
 .reconnect-section input,
 .voucher-section input,
@@ -88,8 +124,13 @@ h1 {
   border-radius: 8px;
   outline: none;
   font-size: 1em;
+  background: #111;
+  color: #0f0;
+  box-shadow: inset 0 0 10px rgba(0,255,0,0.2);
+  border: 1px solid #00ffcc;
 }
 
+/* ✅ Buttons */
 button#payBtn,
 button#reconnectBtn,
 button#activateVoucher,
@@ -100,38 +141,42 @@ button#loginBtn {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s;
 }
 
+/* ✅ Pay Now Button */
 button#payBtn {
   background: #00ffcc;
   color: #000;
 }
-
 button#payBtn:hover {
   background: #00cc99;
+  transform: scale(1.03);
 }
 
+/* ✅ Reconnect Button */
 button#reconnectBtn {
   background: linear-gradient(to right, #ff0000, #00ff00);
   color: #000;
 }
-
 button#reconnectBtn:hover {
   opacity: 0.9;
+  transform: scale(1.03);
 }
 
+/* ✅ Voucher + Login Buttons */
 button#activateVoucher,
 button#loginBtn {
   background: linear-gradient(to right, #00d2ff, #3a7bd5);
   color: white;
 }
-
 button#activateVoucher:hover,
 button#loginBtn:hover {
   opacity: 0.9;
+  transform: scale(1.03);
 }
 
+/* ✅ Timer Section */
 .timer {
   background: #333;
   padding: 20px;
@@ -139,11 +184,11 @@ button#loginBtn:hover {
   margin-top: 30px;
   box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
-
 .timer.hidden {
   display: none;
 }
 
+/* ✅ Logout Button */
 #logout {
   margin-top: 15px;
   padding: 10px 20px;
@@ -152,24 +197,93 @@ button#loginBtn:hover {
   color: white;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s;
 }
-
 #logout:hover {
   background: #ff0000;
+  transform: scale(1.03);
 }
 
+/* ✅ Support Footer */
 .support {
   margin-top: 40px;
   font-size: 0.9em;
   color: #bbb;
 }
-
 .support a {
   color: #00ffcc;
   text-decoration: none;
 }
-
 .support a:hover {
   text-decoration: underline;
+}
+
+/* ✅ Enhanced Login Section Styling (3D, Neon, Glow) */
+.manual-login {
+  margin-top: 40px;
+  padding: 25px 20px;
+  background: linear-gradient(135deg, #111, #1c1c1c);
+  border-radius: 16px;
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.2),
+    inset 0 0 10px rgba(0, 255, 255, 0.1),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.manual-login h3 {
+  color: #00ffcc;
+  text-shadow: 0 0 8px #00ffcc, 0 0 2px #00ffcc;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.manual-login p {
+  font-size: 0.95em;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.manual-login input[type="text"],
+.manual-login input[type="password"] {
+  width: 90%;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 12px 15px;
+  background: #0a0a0a;
+  color: #00ffcc;
+  font-size: 1em;
+  border-radius: 10px;
+  border: 1px solid #00ffcc;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2);
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.manual-login input:focus {
+  box-shadow: 0 0 12px #00ffcc, inset 0 0 12px #00ffcc;
+}
+
+button#manualLoginBtn {
+  margin-top: 15px;
+  padding: 12px 35px;
+  font-size: 1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+  color: white;
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.3),
+    0 5px 15px rgba(0, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button#manualLoginBtn:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 18px rgba(0, 255, 255, 0.6),
+    0 5px 20px rgba(0, 255, 255, 0.3);
 }
