@@ -1,12 +1,12 @@
 const packages = [
   { label: "1 Hour", price: 10, speed: "1Mbps", duration: 1 },
-  { label: "2 Hours", price: 20, speed: "3Mbps", duration: 2 },
-  { label: "4 Hours", price: 30, speed: "3Mbps", duration: 4 },
-  { label: "6 Hours", price: 40, speed: "3Mbps", duration: 6 },
-  { label: "8 Hours", price: 50, speed: "3Mbps", duration: 8 },
-  { label: "24 Hours", price: 60, speed: "3Mbps", duration: 24 },
-  { label: "Weekly", price: 200, speed: "3Mbps", duration: 168 },
-  { label: "Monthly", price: 800, speed: "3Mbps", duration: 720 },
+  { label: "2 Hours", price: 15, speed: "3Mbps", duration: 2 },
+  { label: "4 Hours", price: 20, speed: "3Mbps", duration: 4 },
+  { label: "6 Hours", price: 30, speed: "3Mbps", duration: 6 },
+  { label: "8 Hours", price: 40, speed: "3Mbps", duration: 8 },
+  { label: "24 Hours", price: 40, speed: "3Mbps", duration: 24 },
+  { label: "Weekly", price: 180, speed: "3Mbps", duration: 168 },
+  { label: "Monthly", price: 750, speed: "3Mbps", duration: 720 },
 ];
 
 let selectedPackage = null;
